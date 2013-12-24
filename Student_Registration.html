@@ -1,0 +1,88 @@
+<html>
+<script type='text/javascript' src='knockout-3.0.0.js'></script>
+<body>
+		<form name="Student_registration" action="Submit_stud_Registration.php" method="post">
+		<table>
+		<tr>
+			<td> First Name</td>
+			<td><input type="text" name="f_name" size="" maxlength="" required/></td>
+		</tr><p>
+		<tr>
+			<td> Last Name </td>
+			<td><input type="text" name="l_name" required/></td>
+		</tr><p>
+		<tr>
+			<td> Gender </td>
+			<td><input type="radio" name="Gender" value="M" required/>Male
+			<input type="radio" name="Gender" value="F"/>Female</td>
+		</tr><p>
+		<tr>
+			<td>Date of birth </td>
+			<td><input type="" name="dob" required/></td>
+		</tr><p>
+		<! --Type for Date of birth.
+		Provided Datepicker or not-->
+		<tr>
+			<td>Email</td>
+			<td><input type="email" name="Email" required/></td>
+		</tr><p>
+		<tr>
+			<td>Department</td>
+			<td><input type="text" name="dept_name" size="" maxlength="" required/></td>
+		</tr><p>
+		<tr>
+			<td>Course</td>
+			<td><input type="text" name="course" size="" maxlength="" required/></td>
+		</tr><p>
+		<tr>
+			<td>Semester</td>
+			<td><input type="text" name="sem" size="" maxlength="" required/></td>
+		</tr><p>
+		<tr>
+			<td>Enrollment number </td>
+			<td><input type="" name="enroll_no" required/></td>
+		</tr><p>
+		<tr>
+			<td>Roll Number </td>
+			<td><input type="text" name="roll_no" required/></td>
+		</tr><p>
+		<tr>
+			<td>Upload a valid attachment </td>
+			<td><input type="file" name="fl"/>
+<input type="submit" value="upload"/>
+<?php
+
+
+if (isset($_FILES["fl"])){
+if ($_FILES["fl"]["type"]=="image/jpeg"){
+
+
+
+echo($_FILES["fl"]["name"]);
+echo($_FILES["fl"]["tmp_name"]);
+move_uploaded_file($_FILES["fl"]["tmp_name"], "img/" .$_FILES["fl"]["name"]);
+mysql_query("UPDATE `college`.`userinfo` SET `photograph` = '".$_FILES["fl"]["name"]."' WHERE `userinfo`.`id` =1");
+echo("image uplaoded");}
+else
+{ echo ("invalid image or file mismatch");
+}
+
+
+
+
+?>
+</form>
+
+
+<img src="img/<?PHP echo ($_FILES["fl"]["name"]);  ?>" height="200px" width="200px" alt="uplaod Image"/>
+<?PHP }?>
+</td>
+		</tr>
+			
+		<tr>
+			<td><br><input type="submit" name="signup" value="Sign Up" /> 
+			<input type="reset" name="reset" value="Reset" /> </td>
+		</tr>
+		</table>	
+		</form>
+<html>
