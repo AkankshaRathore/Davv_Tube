@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Student Registration</title>
+    <title>Faculty Registration</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -49,11 +49,11 @@
     </nav>
 
    <div class="container" data-bind="load: loadData()">
-		<h3>Register as a Student :<h3>
+		<h3>Register as a Faculty :<h3>
 	  <div class="row">
 	  
 		<div class="col-md-4">
-		<form action="Submit_stud_registration.php" method="post">
+		<form action="Submit_faculty_Registration.php" method="post">
 		<h4>First Name</h4>
 		  <input type="text" data-bind="value: fname, hasfocus: f_name_focus()" name="f_name" class="form-control inputWidth" placeholder="Enter Your First Name" />
 		  <!--<h4><label>Last Name</label></h4>-->
@@ -73,14 +73,10 @@
 		  <input type="email" data-bind="value: email" name="Email" placeholder="Enter Your Email-id" class="form-control required" title="Please Enter Your Email-id">
 		  <h4>Department</h4>
 		  <input type="text" data-bind="value: dept" name="dept_name" placeholder="Enter Your Department" class="form-control required" title="Please Enter Your Department">
-		  <h4>Course</h4>
-		  <input type="text" data-bind="value: course" name="course" placeholder="Enter Your course" class="form-control required" title="Please Enter Your Course">
-		  <h4>Semester</h4>
-		  <input type="text" data-bind="value: sem" name="sem" placeholder="Enter Your Semester" class="form-control required" title="Please Enter Your Semester">
-		  <h4>Enrollment Number</h4>
-		  <input type="text" data-bind="value: enroll" name="enroll_no" placeholder="Enter Your Enrollment Number" class="form-control required" title="Please Enter Your Enrollment Number">
-		  <h4>Roll Number</h4>
-		  <input type="text" data-bind="value: roll" name="roll_no" placeholder="Enter Your Roll Number" class="form-control required" title="Please Enter Your Roll Number"><br/>
+		  <h4>Designation</h4>
+		  <input type="text" data-bind="value: design" name="designation" placeholder="Enter Your Designation" class="form-control required" title="Please Enter Your Designation">
+		  <h4>University Seniority Number</h4>
+		  <input type="text" data-bind="value: senior_no" name="sen_no" placeholder="Enter Your University Seniority Number" class="form-control required" title="Please Enter Your University Seniority Number"><br/>
 		  <input type="file" name="fl"/>
 <input type="submit" value="upload"/>
 <?php
