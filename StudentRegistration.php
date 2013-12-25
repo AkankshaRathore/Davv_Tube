@@ -76,7 +76,29 @@
 		  <input type="text" data-bind="value: enroll" name="enroll_no" placeholder="Enter Your Enrollment Number" class="form-control required" title="Please Enter Your Enrollment Number">
 		  <h4>Roll Number</h4>
 		  <input type="text" data-bind="value: roll" name="roll_no" placeholder="Enter Your Roll Number" class="form-control required" title="Please Enter Your Roll Number"><br/>
-		  
+		  <input type="file" name="fl"/>
+<input type="submit" value="upload"/>
+<?php
+
+
+if (isset($_FILES["fl"])){
+if ($_FILES["fl"]["type"]=="image/jpeg"){
+
+
+
+echo($_FILES["fl"]["name"]);
+echo($_FILES["fl"]["tmp_name"]);
+move_uploaded_file($_FILES["fl"]["tmp_name"], "img/" .$_FILES["fl"]["name"]);
+//mysql_query("UPDATE `college`.`userinfo` SET `photograph` = '".$_FILES["fl"]["name"]."' WHERE `userinfo`.`id` =1");
+echo("image uplaoded");}
+else
+{ echo ("invalid image or file mismatch");
+}
+
+
+
+
+?>
 		  <button data-bind="click: register" class="btn btn-md btn-primary">Submit</button>      
 		</form>
 		</div>
