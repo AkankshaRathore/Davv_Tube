@@ -15,7 +15,7 @@
     <style>
 	body {margin-top: 60px;}
     </style>
-
+	<script type="text/javascript" src="form_validate.js"></script>
   </head>
 
   <body>
@@ -53,19 +53,20 @@
 	  <div class="row">
 	  
 		<div class="col-md-4">
-		<form action="Submit_stud_registration.php" method="post">
+		<!--form start-->
+		<form action="Submit_stud_registration.php" onsubmit="return validateForm()" name="reg" method="post">
 		<h4>First Name</h4>
 		  <input type="text" data-bind="value: fname, hasfocus: f_name_focus()" name="f_name" class="form-control inputWidth" placeholder="Enter Your First Name" />
 		  <!--<h4><label>Last Name</label></h4>-->
 		  <h4>Last Name</h4>
 		  <input type="text" data-bind="value: lname" name="l_name" placeholder="Enter Your Last Name" class="form-control required" title="Please Enter Your Name">
 		  <h4>Gender</h4>
-		  <!--<div class="input-group">-->
+		  <div class="input-group">
 		  <span class="input-group-addon">
 		  <input type="radio" value="M" name="Gender"> <h5>Male</h5>
 		  <input type="radio" value="F" name="Gender"> <h5>Female</h5>
 		  </span>
-		  <!--</div> /input-group -->
+		  </div> <!--/input-group-->
 		  
 		  <h4>Date of birth</h4>
 		  <input type="text" data-bind="value: dob" name="dob" placeholder="Enter Your Date of Birth" class="form-control required" title="Please Enter Your Date of Birth">
@@ -106,6 +107,7 @@ else
 ?>
 		  <button data-bind="click: register" class="btn btn-md btn-primary">Submit</button>      
 		</form>
+		<!--form end-->
 		</div>
 	  </div>
 	</div>
