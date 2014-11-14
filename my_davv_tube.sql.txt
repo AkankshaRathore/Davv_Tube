@@ -1,0 +1,280 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jan 16, 2014 at 06:34 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `my_davv_tube`
+--
+CREATE DATABASE `my_davv_tube` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `my_davv_tube`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `davv_admin`
+--
+-- Creation: Jan 12, 2014 at 08:14 PM
+-- Last update: Jan 13, 2014 at 01:41 AM
+--
+
+CREATE TABLE IF NOT EXISTS `davv_admin` (
+  `u_name` varchar(120) NOT NULL,
+  `psw` varchar(120) NOT NULL,
+  UNIQUE KEY `u_name` (`u_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `davv_admin`
+--
+
+INSERT INTO `davv_admin` (`u_name`, `psw`) VALUES
+('misha', 'misha');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+-- Creation: Jan 01, 2014 at 11:43 PM
+--
+
+CREATE TABLE IF NOT EXISTS `faculty` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(40) NOT NULL,
+  `lname` varchar(40) NOT NULL,
+  `gender` varchar(5) NOT NULL,
+  `DOB` date NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `dept_name` varchar(50) NOT NULL,
+  `designation` varchar(50) NOT NULL,
+  `sen_no` varchar(20) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`fid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`fid`, `fname`, `lname`, `gender`, `DOB`, `email`, `dept_name`, `designation`, `sen_no`, `status`) VALUES
+(1, 'Madhulika', 'Khire', 'F', '0000-00-00', 'mm@gmail.com', '', 'sirgi', '12344', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum_answer`
+--
+-- Creation: Jan 14, 2014 at 08:33 PM
+--
+
+CREATE TABLE IF NOT EXISTS `forum_answer` (
+  `question_id` int(4) NOT NULL DEFAULT '0',
+  `a_id` int(4) NOT NULL DEFAULT '0',
+  `a_name` varchar(65) NOT NULL DEFAULT '',
+  `a_email` varchar(65) NOT NULL DEFAULT '',
+  `a_answer` longtext NOT NULL,
+  `a_datetime` varchar(25) NOT NULL DEFAULT '',
+  `a_status` int(1) NOT NULL,
+  KEY `a_id` (`a_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forum_answer`
+--
+
+INSERT INTO `forum_answer` (`question_id`, `a_id`, `a_name`, `a_email`, `a_answer`, `a_datetime`, `a_status`) VALUES
+(0, 1, '', '', '', '01/01/14 08:34:10', 1),
+(4, 1, 'aks', 'a@gmail.com', 'uhmsyudicuo', '03/01/14 08:33:33', 1),
+(0, 2, '', '', '', '03/01/14 10:38:31', 2),
+(0, 3, '', '', '', '03/01/14 10:40:03', 2),
+(0, 4, '', '', '', '03/01/14 10:40:24', 2),
+(0, 5, '', '', '', '03/01/14 10:41:11', 2),
+(0, 6, '', '', '', '03/01/14 10:42:37', 2),
+(4, 2, 'sgrs', 'erqr@sr.ctr', 'ewqre', '03/01/14 10:42:56', 2),
+(4, 3, 'strewr', 'erqr@sr.ctr', 'dstrert', '03/01/14 10:47:08', 0),
+(4, 4, 'rstr', 'erqr@sr.ctr', 'rstew', '03/01/14 10:47:55', 2),
+(1, 1, 'akank', 'a@uyiuy.iuymi', 'uiohmiohmuio', '03/01/14 11:01:21', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum_question`
+--
+-- Creation: Jan 14, 2014 at 08:34 PM
+--
+
+CREATE TABLE IF NOT EXISTS `forum_question` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `topic` varchar(255) NOT NULL DEFAULT '',
+  `detail` longtext NOT NULL,
+  `name` varchar(65) NOT NULL DEFAULT '',
+  `email` varchar(65) NOT NULL DEFAULT '',
+  `datetime` varchar(25) NOT NULL DEFAULT '',
+  `view` int(4) NOT NULL DEFAULT '0',
+  `reply` int(4) NOT NULL DEFAULT '0',
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `forum_question`
+--
+
+INSERT INTO `forum_question` (`id`, `topic`, `detail`, `name`, `email`, `datetime`, `view`, `reply`, `status`) VALUES
+(1, 'abcd', 'kjasiuioumiau', 'ashi', 'a@gmail.com', '01/01/14 08:07:09', 11, 1, 1),
+(2, 'sabhhhu', 'hhhjkukfidlil', 'sam', 'sanjj', '01/01/14 08:12:38', 3, 0, 1),
+(3, 'new', 'oiimpoiop', 'akanksha', 'ak@gmail.com', '01/01/14 09:10:39', 0, 0, 2),
+(4, 'ioioo', 'uyniyi', 'sam', 's@fk.com', '01/01/14 11:40:28', 23, 4, 2),
+(7, 'uyui', 'yuio', 'uiyuiy', 'a', '03/01/14 08:43:33', 18, 0, 1),
+(8, 'my project', 'java jsp hcuijhiushuyygytgftygtycncijicjijicusjuxijsuxnjxnajkhjhsjag jnkcuxi uhnuyc suiysu suyuis uyduisa uyudis uiydui uyio uiyui ysdyuyd uyuiyud uyu udysu uyduy ui uyu dyuiyduid yduiydua dauyuiaydu dyuiydu uyuiody yodyiu dys dysodysiodyos dsdyyd s dyys d s', 'Anuradha', 'anuradha@gmail.com', '04/01/14 07:50:00', 0, 0, 1),
+(9, 'LTP', 'this course is relevant for CS. ', 'vxscx', 'ak@gmail.com', '04/01/14 08:18:44', 0, 0, 0),
+(10, 'Heap sort', 'hth', 'Algorithms', 'trapti.rathore.54@gmail.com', '16/01/14 06:11:12', 0, 0, 0),
+(11, 'Heap sort', 'mjkmjk', 'Algorithms', 'trapti.rathore.54@gmail.com', '16/01/14 06:12:22', 0, 0, 0),
+(12, 'fdg', 'gfgdygrey', 'Algorithms', 'trapti.rathore.54@gmail.com', '16/01/14 06:12:34', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+-- Creation: Jan 03, 2014 at 08:17 PM
+-- Last update: Jan 16, 2014 at 11:50 PM
+--
+
+CREATE TABLE IF NOT EXISTS `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(120) DEFAULT NULL,
+  `lname` varchar(120) DEFAULT NULL,
+  `gender` varchar(120) DEFAULT NULL,
+  `DOB` varchar(120) DEFAULT NULL,
+  `email` varchar(120) DEFAULT NULL,
+  `department` varchar(120) DEFAULT NULL,
+  `course` varchar(120) DEFAULT NULL,
+  `semester` varchar(120) DEFAULT NULL,
+  `enroll_no` varchar(120) DEFAULT NULL,
+  `roll_no` varchar(120) DEFAULT NULL,
+  `attached_img` varchar(120) DEFAULT NULL,
+  `type` varchar(120) DEFAULT NULL,
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `email_2` (`email`),
+  UNIQUE KEY `email_3` (`email`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `fname`, `lname`, `gender`, `DOB`, `email`, `department`, `course`, `semester`, `enroll_no`, `roll_no`, `attached_img`, `type`, `status`) VALUES
+(42, 'komak', 'RAthore', 'F', '27-7-1992', 'komal@gmail.com', '', 'MCA', '10', 'DE-)9-2013', '10245', 'komal.jpg', 'image/jpeg', 1),
+(43, 'himmu', 'Rathore', 'F', '27-7-1992', 'ritl.rathore40@gmail.com', '', 'MCA', '10', 'DE-)9-2013', 'ic2k940', 'shin chan 4.jpg', 'image/jpeg', 0),
+(44, 'Madhulika', 'Khire', 'F', '27-7-1992', 'mm@gmail.com', '', 'MCA', '10', 'DE-)9-2013', 'ic2k940', 'shin chan 5.jpg', 'image/jpeg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test_videos`
+--
+-- Creation: Jan 01, 2014 at 11:43 PM
+--
+
+CREATE TABLE IF NOT EXISTS `test_videos` (
+  `id` int(200) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `url` varchar(200) NOT NULL,
+  `like` int(11) NOT NULL,
+  `unlike` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `test_videos`
+--
+
+INSERT INTO `test_videos` (`id`, `name`, `url`, `like`, `unlike`) VALUES
+(1, 'Mein Tenu Samjhawan.mp4', 'http://127.0.0.1/My_davv_tube/uploaded/Mein Tenu Samjhawan.mp4', 0, 0),
+(2, 'Dave Days - Olive You feat. Kimmi Smiles (lyrics).mp4', 'http://127.0.0.1/My_davv_tube/uploaded/Dave Days - Olive You feat. Kimmi Smiles (lyrics).mp4', 0, 0),
+(3, 'OneRepublic - All The Right Moves.mp4', 'http://127.0.0.1/My_davv_tube/uploaded/OneRepublic - All The Right Moves.mp4', 0, 0),
+(5, 'TAYLOR SWIFT - You Belong With Me (OFFICIAL MUSIC VIDEO) [www.keepvid.com].mp4', 'http://127.0.0.1/My_davv_tube/uploaded/TAYLOR SWIFT - You Belong With Me (OFFICIAL MUSIC VIDEO) [www.keepvid.com].mp4', 0, 0),
+(6, 'Jennifer Lopez - On The Floor ft. Pitbull.mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Jennifer Lopez - On The Floor ft. Pitbull.mp4', 0, 0),
+(7, 'The Band Perry - If I Die Young.mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/The Band Perry - If I Die Young [www.keepvid.com].mp4', 0, 0),
+(8, 'Twilight Breaking Dawn Music Video - Christina Perri A Thousand Years - Official [HD].mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Twilight Breaking Dawn Music Video - Christina Perri A Thousand Years - Official [HD].mp4', 0, 0),
+(9, 'The Lion Sleeps Tonight - Hippo Singer.mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/The Lion Sleeps Tonight - Hippo Singer.mp4', 0, 0),
+(10, 'Anwar_Maula_Mere.webm', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Anwar_Maula_Mere.webm', 0, 0),
+(11, 'Apple_iWorld_-_World_After_30_Years.webm', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Apple_iWorld_-_World_After_30_Years.webm', 0, 0),
+(12, 'Apple_iWorld_-_World_After_30_Years.webm', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Apple_iWorld_-_World_After_30_Years.webm', 0, 0),
+(13, 'Example - Kickstarts (Bar9 Remix Official Video) [www.keepvid.com].mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Example - Kickstarts (Bar9 Remix Official Video) [www.keepvid.com].mp4', 0, 0),
+(14, 'Coldplay - Paradise.mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Coldplay - Paradise.mp4', 0, 0),
+(15, 'Hes The Pirate By Klaus Badelt  Hans Zimmer LIVE.mp4.mp4', 'http://127.0.0.1/My_davv_tube/DAVV_tube_template/uploaded/Hes The Pirate By Klaus Badelt  Hans Zimmer LIVE.mp4.mp4', 0, 0),
+(16, 'Lee DeWyze - Sweet Serendipity.mp4', 'vfssfvfv', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+-- Creation: Jan 03, 2014 at 07:26 PM
+-- Last update: Jan 13, 2014 at 02:14 AM
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `u_name` varchar(120) NOT NULL,
+  `psw` varchar(120) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`u_name`, `psw`) VALUES
+('komal@gmail.com', '52d2fc2a4f14f');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_list`
+--
+-- Creation: Jan 01, 2014 at 11:43 PM
+--
+
+CREATE TABLE IF NOT EXISTS `video_list` (
+  `video_id` int(200) NOT NULL AUTO_INCREMENT,
+  `instructor_name` varchar(70) NOT NULL,
+  `category` varchar(80) NOT NULL,
+  `title` varchar(70) NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `tags` varchar(100) NOT NULL,
+  `date_created` date NOT NULL,
+  `duration` varchar(20) NOT NULL,
+  `views` int(255) NOT NULL,
+  `original_name` varchar(80) NOT NULL,
+  `file_name` varchar(80) NOT NULL,
+  PRIMARY KEY (`video_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `video_list`
+--
+
+INSERT INTO `video_list` (`video_id`, `instructor_name`, `category`, `title`, `description`, `tags`, `date_created`, `duration`, `views`, `original_name`, `file_name`) VALUES
+(1, 'helloname', 'helloname', 'helloname', 'helloname', 'helloname', '2013-12-25', '4:56', 8, 'mp4', 'misha'),
+(2, 'Alex goot', 'General', 'Preety eyes', 'sweet video', '#alexgoot', '2013-12-30', '4:15', 8, 'Pretty Eye', 'Pretty Eyes - Alex Goot [www'),
+(3, 'Instructor', 'General', 'komal', 'qwerty', '#goodgirl', '2013-12-30', '5:05', 16, 'Lee DeWyze - Sweet Serendipity.mp4', 'Lee DeWyze - Sweet Serendipity'),
+(4, 'bedi', 'computer_science', 'hithere', 'vvfvd', '#AI', '2013-12-27', '2:00', 8, 'Lee DeWyze - Sweet Serendipity.ogv', 'Lee DeWyze - Sweet Serendipity'),
+(5, 'xyz', 'General', 'say na ', 'nothing', '#movie', '2013-12-30', '4:00', 8, 'SAY_NA.m4v', 'SAY_NA'),
+(6, 'xyz', 'General', 'say na', 'nothing', '#movie', '2013-12-30', '4:00', 14, 'SAY_NA.mp4', 'SAY_NA'),
+(7, 'xyz', 'General', 'say na', 'nothing', 'mkmalv', '2013-12-30', '5:00', 9, 'SAY_NA.ogv', 'SAY_NA'),
+(8, 'fvfev', 'General', 'say na', 'nothing', '#movie', '2013-12-30', '3:00', 8, 'SAY_NA.web', 'SAY_NA'),
+(11, 'sid', 'General', 'wake up', 'be happy', '#wakeupsid', '2013-12-30', '3:00', 14, 'Life Is Crazy - Wake Up Sid (2009) _HD_ Music Videos.mp4', 'Life Is Crazy - Wake Up Sid (2009) _HD_ Music Videos'),
+(13, 'stanford proff', 'Computer_Science', 'Learn to program', 'Learn to program', '#LTP', '2013-12-31', '4:00', 13, '2 - 1 - Welcome to LTP (035).mp4', '2 - 1 - Welcome to LTP (035)'),
+(14, 'Jillian Hess -Stanford Proffesor', 'Computer_Science', 'Database Authorization', 'Introduction to database', '#database', '2014-01-01', '3:00', 4, '14 - 1 - Authorization (11 min).mp4', '14 - 1 - Authorization (11 min)'),
+(15, 'Shaligram Prajapat', 'Computer_Science', 'New', 'ADA introduction', 'In Python', '2014-01-03', '1.00 m', 5, 'Best Of The Minions - Despicable Me 1 and Despicable Me 2.mp4', 'Best Of The Minions - Despicable Me 1 and Despicable Me 2'),
+(16, 'Shann', 'Instrumentation', 'Agni', 'Nothing to say', 'Playback Singer', '2014-01-04', '45 m', 0, 'Video0003.mp4', 'Video0003');

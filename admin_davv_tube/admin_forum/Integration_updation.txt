@@ -1,0 +1,27 @@
+Admin Forum
+1. verify_post.php //mysql_close(); // Commented by komal rathore
+2. verify_post.php //mysql_close(); // Commented by komal rathore
+3. <li class="dropdown"><a href="../index.php" class="dropdown-toggle" data-toggle="dropdown">User Verification<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+			<li><a href="<?php echo $set_path; ?>VerifyUser/verification.php">Student</a></li>
+			<li><a href="<?php echo $set_path; ?>VerifyUser/faculty_verification.php">Faculty</a></li>
+			</ul>
+			</li>
+in verify_post and verify_reply.
+
+Manage_video
+1. config.php set
+
+No change due to js confliction
+
+
+verify_user
+ faculty_verification.php 
+ student_verification.php
+<li class="dropdown"><a href="../index.php" class="dropdown-toggle" data-toggle="dropdown">Verify Blog<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+			<li><a href="../admin_forum/verify_post.php">Post</a></li>
+			<li><a href="../admin_forum/verify_reply.php">Reply</a></li>
+			<!--<li><a href="#">Approve Comments</a></li>-->
+            </ul>
+			</li>
